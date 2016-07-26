@@ -5,7 +5,7 @@ import {Http, HTTP_PROVIDERS} from '@angular/http'
 import './rxjs.operators';
 @Component({
   selector: 'my-app',
-  template: `<h1>My First Angular 2 App</h1>
+  template: `<h1>API Client</h1>
             <hero-list></hero-list>`,
   directives: [HeroComponent],
   providers : [HeroService, Http, HTTP_PROVIDERS]

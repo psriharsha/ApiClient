@@ -19,7 +19,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>My First Angular 2 App</h1>\n            <hero-list></hero-list>",
+            template: "<h1>API Client</h1>\n            <hero-list></hero-list>",
             directives: [hero_component_1.HeroComponent],
             providers: [hero_service_1.HeroService, http_1.Http, http_1.HTTP_PROVIDERS]
         }), 
