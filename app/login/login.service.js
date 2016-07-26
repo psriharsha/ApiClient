@@ -21,7 +21,7 @@ var LoginService = (function () {
         var body = JSON.stringify({ Email: user, Password: pass, ConfirmPassword: pass });
         console.log(this.endpoint + app_constant_1.SETTINGS.apiConnection.register);
         console.log("Body being sent: " + body);
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': 'http://localhost:55276/' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.endpoint + app_constant_1.SETTINGS.apiConnection.register, body, options)
             .map(this.extractData)

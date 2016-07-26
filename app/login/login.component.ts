@@ -10,6 +10,7 @@ export class LoginComponent{
     password : string;
     remember : boolean;
     message  : string;
+    errorMessage : string;
 
     constructor(private _service : LoginService){
         this.message = "Please log in"
