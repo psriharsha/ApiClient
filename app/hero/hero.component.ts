@@ -3,9 +3,8 @@ import {Hero} from './hero'
 import {HeroService} from './hero.service'
 
 @Component({
-    selector : 'hero-list',
-    template : `<ul>
-                <li *ngFor = "let hero of heroes">{{hero.name}}</li>
+    template : `<ul class="list-group">
+                <li *ngFor = "let hero of heroes" class="list-group-item">{{hero.name}}</li>
                 </ul>
                 <p *ngIf = "heroes.length == 0">No data</p>
                 <button (click) = "getHeroes()">Refresh Data</button>

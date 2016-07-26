@@ -6,3 +6,11 @@ h1 {
 body {
   margin: 2em;
 }
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.loginrow{
+  position: relative;
+  padding-top:10em;
+}

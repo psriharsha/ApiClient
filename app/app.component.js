@@ -10,8 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var hero_component_1 = require('./hero/hero.component');
+var login_component_1 = require('./login/login.component');
 var hero_service_1 = require('./hero/hero.service');
+var login_service_1 = require('./login/login.service');
 var http_1 = require('@angular/http');
+var router_1 = require('@angular/router');
 require('./rxjs.operators');
 var AppComponent = (function () {
     function AppComponent() {
@@ -19,9 +22,10 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>API Client</h1>\n            <hero-list></hero-list>",
-            directives: [hero_component_1.HeroComponent],
-            providers: [hero_service_1.HeroService, http_1.Http, http_1.HTTP_PROVIDERS]
+            template: "<router-outlet></router-outlet>",
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [hero_service_1.HeroService, login_service_1.LoginService, http_1.Http, http_1.HTTP_PROVIDERS],
+            precompile: [hero_component_1.HeroComponent, login_component_1.LoginComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
