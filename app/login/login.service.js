@@ -21,14 +21,14 @@ var LoginService = (function () {
         var body = JSON.stringify({ Email: user, Password: pass, ConfirmPassword: pass });
         console.log(this.endpoint + app_constant_1.SETTINGS.apiConnection.register);
         console.log("Body being sent: " + body);
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': 'http://localhost:55276/' });
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.endpoint + app_constant_1.SETTINGS.apiConnection.register, body, options)
             .map(this.extractData)
             .catch(this.handleError);
     };
     LoginService.prototype.extractData = function (res) {
-        console.log("Something");
+        console.log(res);
         if (res.status == 200)
             return true;
         else

@@ -14,7 +14,7 @@ export class LoginService{
         let body = JSON.stringify({Email : user, Password : pass,ConfirmPassword : pass  });
         console.log(this.endpoint + SETTINGS.apiConnection.register);
         console.log("Body being sent: " + body);
-        let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : 'http://localhost:55276/'});
+        let headers = new Headers({ 'Content-Type': 'application/json'});
         let options = new RequestOptions({ headers: headers});
         return this.http.post(this.endpoint + SETTINGS.apiConnection.register, body, options)
                         .map(this.extractData)
@@ -22,7 +22,7 @@ export class LoginService{
     }
 
     private extractData(res: Response) {
-        console.log("Something");
+        console.log(res);
         if(res.status == 200)
             return true;
         else return false;
