@@ -1,0 +1,16 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+body {
+  margin: 2em;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.loginrow{
+  position: relative;
+  padding-top:10em;
+}

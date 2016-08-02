@@ -8,7 +8,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import './rxjs.operators';
 @Component({
   selector: 'my-app',
-  template: `<router-outlet></router-outlet>`,
+  templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES],
   providers : [HeroService, LoginService, Http, HTTP_PROVIDERS],
   precompile : [HeroComponent, LoginComponent]

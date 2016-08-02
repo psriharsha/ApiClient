@@ -10,31 +10,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var login_service_1 = require('./login.service');
+var router_1 = require('@angular/router');
 var LoginComponent = (function () {
-    function LoginComponent(_service) {
+    function LoginComponent(_service, _router) {
         this._service = _service;
+        this._router = _router;
         this.message = "Please log in";
         this.type = "alert-success";
     }
+    LoginComponent.prototype.ngOnInit = function () {
+        if (this._service.isAuthenticated()) {
+            this._router.navigate(['hero']);
+        }
+    };
     LoginComponent.prototype.submitLogin = function () {
         var _this = this;
-        this._service.validateLogin(this.username, this.password).subscribe(function (response) {
-            if (response.status === 200) {
-                _this.message = (response.json()).access_token;
-                _this.type = "alert-success";
-            }
-            else {
-                _this.message = "Invalid Username or Password";
+        if (this._service.isAuthenticated()) {
+            console.log("Logging out");
+            localStorage.clear();
+        }
+        else {
+            this._service.validateLogin(this.username, this.password).subscribe(function (response) {
+                if (response.status === 200) {
+                    localStorage.setItem("authBearer", (response.json()).access_token);
+                    _this.message = "Login Validated";
+                    _this.type = "alert-success";
+                    _this._router.navigate(["hero"]);
+                }
+            }, function (error) {
+                localStorage.removeItem("authBearer");
+                _this.message = "Invalid Username and Password Combination";
                 _this.type = "alert-danger";
-            }
-        }, function (error) { return _this.message = error; });
+            });
+        }
     };
     LoginComponent = __decorate([
         core_1.Component({
             templateUrl: 'app/login/login.html',
             providers: [login_service_1.LoginService]
         }), 
-        __metadata('design:paramtypes', [login_service_1.LoginService])
+        __metadata('design:paramtypes', [login_service_1.LoginService, router_1.Router])
     ], LoginComponent);
     return LoginComponent;
 }());

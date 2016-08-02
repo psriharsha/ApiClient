@@ -22,7 +22,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<router-outlet></router-outlet>",
+            templateUrl: 'app/app.component.html',
             directives: [router_1.ROUTER_DIRECTIVES],
             providers: [hero_service_1.HeroService, login_service_1.LoginService, http_1.Http, http_1.HTTP_PROVIDERS],
             precompile: [hero_component_1.HeroComponent, login_component_1.LoginComponent]
