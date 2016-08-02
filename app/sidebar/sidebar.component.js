@@ -9,15 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var sidebar_1 = require('./sidebar');
 var SideBarComponent = (function () {
     function SideBarComponent() {
+        var profile = new sidebar_1.SideBar();
+        profile.menuname = "Profile";
+        profile.menuicon = "fa-user";
+        profile.menulink = "/hero";
+        this.menuItems = [];
+        this.menuItems.push(profile);
     }
     SideBarComponent.prototype.getMenuItems = function () {
     };
     SideBarComponent = __decorate([
         core_1.Component({
             selector: 'side-bar',
-            template: "<ul class=\"nav\">\n                <li *ngFor = \"menuItem in menuItems\">\n                    <a href=\"{{menuItem.link}}\">\n                        <i class=\"fa {{menuItem.menuIcon}}\"></i>\n                        <p>{{menuItem.menuName}}</p>\n                    </a>\n                </li>\n\n            </ul>"
+            template: "<ul class=\"nav\">\n                <li *ngFor = \"let menuItem of menuItems\">\n                    <a [routerLink]=\"[menuItem.menulink]\">\n                        <i class=\"fa {{menuItem.menuicon}}\"></i>\n                        <p>{{menuItem.menuname}}</p>\n                    </a>\n                </li>\n\n            </ul>",
+            directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], SideBarComponent);
