@@ -28,7 +28,6 @@ var LoginService = (function () {
             .catch(this.handleError);
     };
     LoginService.prototype.extractData = function (res) {
-        console.log(res);
         if (res.status == 200)
             return true;
         else

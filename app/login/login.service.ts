@@ -22,7 +22,6 @@ export class LoginService{
     }
 
     private extractData(res: Response) {
-        console.log(res);
         if(res.status == 200)
             return true;
         else return false;
