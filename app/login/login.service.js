@@ -22,12 +22,8 @@ var LoginService = (function () {
         var headers = new http_1.Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.endpoint + app_constant_1.SETTINGS.apiConnection.login, body, options)
-            .map(this.extractData)
+            .map(function (response) { return response; })
             .catch(this.handleError);
-    };
-    LoginService.prototype.extractData = function (res) {
-        var body = res.json();
-        return body || {};
     };
     LoginService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure

@@ -14,10 +14,20 @@ var LoginComponent = (function () {
     function LoginComponent(_service) {
         this._service = _service;
         this.message = "Please log in";
+        this.type = "alert-success";
     }
     LoginComponent.prototype.submitLogin = function () {
         var _this = this;
-        this._service.validateLogin(this.username, this.password).subscribe(function (result) { return _this.message = result.access_token; }, function (error) { return _this.message = error; });
+        this._service.validateLogin(this.username, this.password).subscribe(function (response) {
+            if (response.status === 200) {
+                _this.message = (response.json()).access_token;
+                _this.type = "alert-success";
+            }
+            else {
+                _this.message = "Invalid Username or Password";
+                _this.type = "alert-danger";
+            }
+        }, function (error) { return _this.message = error; });
     };
     LoginComponent = __decorate([
         core_1.Component({

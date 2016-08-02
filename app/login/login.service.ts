@@ -15,14 +15,10 @@ export class LoginService{
         let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded'});
         let options = new RequestOptions({ headers: headers});
         return this.http.post(this.endpoint + SETTINGS.apiConnection.login, body, options)
-                        .map(this.extractData)
+                        .map(response => {return response;})
                         .catch(this.handleError);
     }
 
-    private extractData(res: Response) {
-        var body = res.json();
-        return body || {};
-    }
     private handleError (error: any) {
         // In a real world app, we might use a remote logging infrastructure
         // We'd also dig deeper into the error to get a better message
