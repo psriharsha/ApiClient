@@ -4,8 +4,9 @@ export let SETTINGS = {
         people: "users/"
     },
     apiConnection : {
-        url : "http://localhost:55276/api/",
-        account : "Account/",
-        register: "Register"
+        url : "http://localhost:56224/api/",
+        account     : "Account/",
+        register    : "Register",
+        login       : "token"
     }
 }

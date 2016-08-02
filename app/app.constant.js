@@ -5,9 +5,10 @@ exports.SETTINGS = {
         people: "users/"
     },
     apiConnection: {
-        url: "http://localhost:55276/api/",
+        url: "http://localhost:56224/api/",
         account: "Account/",
-        register: "Register"
+        register: "Register",
+        login: "token"
     }
 };
 //# sourceMappingURL=app.constant.js.map

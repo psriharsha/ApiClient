@@ -15,23 +15,19 @@ var Observable_1 = require('rxjs/Observable');
 var LoginService = (function () {
     function LoginService(http) {
         this.http = http;
-        this.endpoint = app_constant_1.SETTINGS.apiConnection.url + app_constant_1.SETTINGS.apiConnection.account;
+        this.endpoint = app_constant_1.SETTINGS.apiConnection.url; //+ SETTINGS.apiConnection.account;
     }
     LoginService.prototype.validateLogin = function (user, pass) {
-        var body = JSON.stringify({ Email: user, Password: pass, ConfirmPassword: pass });
-        console.log(this.endpoint + app_constant_1.SETTINGS.apiConnection.register);
-        console.log("Body being sent: " + body);
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var body = "Username=" + user + "&Password=" + pass + "&grant_type=password";
+        var headers = new http_1.Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.endpoint + app_constant_1.SETTINGS.apiConnection.register, body, options)
+        return this.http.post(this.endpoint + app_constant_1.SETTINGS.apiConnection.login, body, options)
             .map(this.extractData)
             .catch(this.handleError);
     };
     LoginService.prototype.extractData = function (res) {
-        if (res.status == 200)
-            return true;
-        else
-            return false;
+        var body = res.json();
+        return body || {};
     };
     LoginService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure

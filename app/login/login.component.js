@@ -17,8 +17,7 @@ var LoginComponent = (function () {
     }
     LoginComponent.prototype.submitLogin = function () {
         var _this = this;
-        console.log("Username: " + this.username + "\t Password: " + this.password);
-        this._service.validateLogin(this.username, this.password).subscribe(function (result) { return console.log(result); }, function (error) { return _this.errorMessage = error; });
+        this._service.validateLogin(this.username, this.password).subscribe(function (result) { return _this.message = result.access_token; }, function (error) { return _this.message = error; });
     };
     LoginComponent = __decorate([
         core_1.Component({
