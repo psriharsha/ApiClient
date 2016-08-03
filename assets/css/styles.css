@@ -3399,3 +3399,11 @@ body > .navbar-collapse[data-color="purple"]:after {
 .pointer{
   cursor : pointer;
 }
+loginrow{
+  position: relative;
+  margin-top:30em;
+}
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
