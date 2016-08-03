@@ -51,7 +51,7 @@ var SideBarComponent = (function () {
     SideBarComponent = __decorate([
         core_1.Component({
             selector: 'side-bar',
-            template: "<ul class=\"nav\">\n                <li *ngFor = \"let menuItem of menuItems\">\n                    <a [routerLink]=\"[menuItem.menulink]\" *ngIf=\"menuItem.menuaction\">\n                        <i class=\"fa {{menuItem.menuicon}}\"></i>\n                        <p>{{menuItem.menuname}}</p>\n                    </a>\n                    <a *ngIf=\"!menuItem.menuaction\" (click)=\"logOut()\">\n                        <i class=\"fa {{menuItem.menuicon}}\"></i>\n                        <p>{{menuItem.menuname}}</p>\n                    </a>\n                </li>\n\n            </ul>",
+            template: "<ul class=\"nav\">\n                <li *ngFor = \"let menuItem of menuItems\">\n                    <a [routerLink]=\"[menuItem.menulink]\" *ngIf=\"menuItem.menuaction\">\n                        <i class=\"fa {{menuItem.menuicon}}\"></i>\n                        <p>{{menuItem.menuname}}</p>\n                    </a>\n                    <a *ngIf=\"!menuItem.menuaction\" (click)=\"logOut()\" class=\"pointer\">\n                        <i class=\"fa {{menuItem.menuicon}}\"></i>\n                        <p>{{menuItem.menuname}}</p>\n                    </a>\n                </li>\n\n            </ul>",
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [router_1.Router, login_service_1.LoginService])

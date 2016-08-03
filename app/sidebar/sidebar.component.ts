@@ -11,7 +11,7 @@ import {LoginService} from '../login/login.service';
                         <i class="fa {{menuItem.menuicon}}"></i>
                         <p>{{menuItem.menuname}}</p>
                     </a>
-                    <a *ngIf="!menuItem.menuaction" (click)="logOut()">
+                    <a *ngIf="!menuItem.menuaction" (click)="logOut()" class="pointer">
                         <i class="fa {{menuItem.menuicon}}"></i>
                         <p>{{menuItem.menuname}}</p>
                     </a>

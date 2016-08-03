@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {LoginService} from './login.service';
 import {Router } from '@angular/router';
+import {FormBuilder, Validators} from '@angular/common'
+import {LoginService} from './login.service';
 
 @Component({
     templateUrl : 'app/login/login.html',
@@ -12,17 +13,26 @@ export class LoginComponent{
     remember : boolean;
     message  : string;
     type     : string;
+    loginForm : any;
 
-    constructor(private _service : LoginService, private _router : Router ){
+    constructor(private _service : LoginService, private _router : Router, fb : FormBuilder){
         this.message = "Please log in";
         this.type    = "alert-success";
+        this.loginForm= fb.group({
+            username: ["", Validators.required],
+            password: ["", Validators.required]
+        });
     }
     ngOnInit(){
         if(this._service.isAuthenticated()){
            this._router.navigate(['hero']);
         }
     }
-    submitLogin(){
+    submitLogin(event){
+        console.log("Login Submitted");
+        event.preventDefault();
+        this.username = this.loginForm.controls.username.value;
+        this.password = this.loginForm.controls.password.value;
         this._service.validateLogin(this.username, this.password).subscribe((response : any) =>  {
                 if(response.status === 200){
                     this.message = "Login Validated";
