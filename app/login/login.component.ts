@@ -14,10 +14,12 @@ export class LoginComponent{
     message  : string;
     type     : string;
     loginForm : any;
+    isSubmitted : Boolean;
 
     constructor(private _service : LoginService, private _router : Router, fb : FormBuilder){
         this.message = "Please log in";
         this.type    = "alert-success";
+        this.isSubmitted = false;
         this.loginForm= fb.group({
             username: ["", Validators.required],
             password: ["", Validators.required]
@@ -29,7 +31,7 @@ export class LoginComponent{
         }
     }
     submitLogin(event){
-        console.log("Login Submitted");
+        this.isSubmitted = true;
         event.preventDefault();
         this.username = this.loginForm.controls.username.value;
         this.password = this.loginForm.controls.password.value;
@@ -38,11 +40,14 @@ export class LoginComponent{
                     this.message = "Login Validated";
                     this.type    = "alert-success";
                     this._router.navigate(["hero"]);
-                }
+                }                
+            this.isSubmitted = false;
             },error =>  {
                 localStorage.removeItem("authBearer");
                 this.message = "Invalid Username and Password Combination";
                 this.type = "alert-danger";
-            });
+                
+            this.isSubmitted = false; 
+            });        
     }
 }

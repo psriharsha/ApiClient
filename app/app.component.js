@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var hero_component_1 = require('./hero/hero.component');
 var login_component_1 = require('./login/login.component');
 var sidebar_component_1 = require('./sidebar/sidebar.component');
+var chat_component_1 = require('./chat/chat.component');
 var hero_service_1 = require('./hero/hero.service');
 var login_service_1 = require('./login/login.service');
 var http_1 = require('@angular/http');
@@ -26,7 +27,7 @@ var AppComponent = (function () {
             templateUrl: 'app/app.component.html',
             directives: [router_1.ROUTER_DIRECTIVES, sidebar_component_1.SideBarComponent],
             providers: [hero_service_1.HeroService, login_service_1.LoginService, http_1.Http, http_1.HTTP_PROVIDERS],
-            precompile: [hero_component_1.HeroComponent, login_component_1.LoginComponent]
+            precompile: [hero_component_1.HeroComponent, login_component_1.LoginComponent, chat_component_1.ChatComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

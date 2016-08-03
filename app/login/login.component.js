@@ -18,6 +18,7 @@ var LoginComponent = (function () {
         this._router = _router;
         this.message = "Please log in";
         this.type = "alert-success";
+        this.isSubmitted = false;
         this.loginForm = fb.group({
             username: ["", common_1.Validators.required],
             password: ["", common_1.Validators.required]
@@ -30,7 +31,7 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.submitLogin = function (event) {
         var _this = this;
-        console.log("Login Submitted");
+        this.isSubmitted = true;
         event.preventDefault();
         this.username = this.loginForm.controls.username.value;
         this.password = this.loginForm.controls.password.value;
@@ -40,10 +41,12 @@ var LoginComponent = (function () {
                 _this.type = "alert-success";
                 _this._router.navigate(["hero"]);
             }
+            _this.isSubmitted = false;
         }, function (error) {
             localStorage.removeItem("authBearer");
             _this.message = "Invalid Username and Password Combination";
             _this.type = "alert-danger";
+            _this.isSubmitted = false;
         });
     };
     LoginComponent = __decorate([
