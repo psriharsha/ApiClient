@@ -25,24 +25,17 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.submitLogin = function () {
         var _this = this;
-        if (this._service.isAuthenticated()) {
-            console.log("Logging out");
-            localStorage.clear();
-        }
-        else {
-            this._service.validateLogin(this.username, this.password).subscribe(function (response) {
-                if (response.status === 200) {
-                    localStorage.setItem("authBearer", (response.json()).access_token);
-                    _this.message = "Login Validated";
-                    _this.type = "alert-success";
-                    _this._router.navigate(["hero"]);
-                }
-            }, function (error) {
-                localStorage.removeItem("authBearer");
-                _this.message = "Invalid Username and Password Combination";
-                _this.type = "alert-danger";
-            });
-        }
+        this._service.validateLogin(this.username, this.password).subscribe(function (response) {
+            if (response.status === 200) {
+                _this.message = "Login Validated";
+                _this.type = "alert-success";
+                _this._router.navigate(["hero"]);
+            }
+        }, function (error) {
+            localStorage.removeItem("authBearer");
+            _this.message = "Invalid Username and Password Combination";
+            _this.type = "alert-danger";
+        });
     };
     LoginComponent = __decorate([
         core_1.Component({

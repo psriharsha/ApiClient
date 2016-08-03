@@ -5,7 +5,8 @@ var hero_component_1 = require('./hero/hero.component');
 var routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: login_component_1.LoginComponent },
-    { path: 'hero', component: hero_component_1.HeroComponent }
+    { path: 'hero', component: hero_component_1.HeroComponent },
+    { path: '**', redirectTo: '/hero', pathMatch: 'full' }
 ];
 exports.appRouterProviders = [
     router_1.provideRouter(routes)

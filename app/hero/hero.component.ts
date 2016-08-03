@@ -1,6 +1,8 @@
-import {Component} from '@angular/core';
+import {Component} from '@angular/core'
+import {Router} from '@angular/router'
 import {Hero} from './hero'
 import {HeroService} from './hero.service'
+import {LoginService} from '../login/login.service'
 
 @Component({
     template : `<ul class="list-group">
@@ -8,14 +10,21 @@ import {HeroService} from './hero.service'
                 </ul>
                 <p *ngIf = "heroes.length == 0">No data</p>
                 <button (click) = "getHeroes()">Refresh Data</button>
-                <button (click) = "mockHeroes()">Mock Data</button>`
+                <button (click) = "mockHeroes()">Mock Data</button>`,
+    providers : [LoginService]
 })
 export class HeroComponent{
 
     heroes : Hero[];
     errorMessage : string;
-    constructor(private heroService : HeroService){
+    constructor(private heroService : HeroService, private _loginService : LoginService, private _router : Router){
         this.heroes = heroService.heroes;
+    }
+
+    ngOnInit(){
+        if(!this._loginService.isAuthenticated()){
+            this._router.navigate(['login']);
+        }
     }
 
     getHeroes() {

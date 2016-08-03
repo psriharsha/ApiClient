@@ -3365,7 +3365,12 @@ body > .navbar-collapse[data-color="purple"]:after {
     font-size: 14px;
     margin: 0;
   }
-  .navbar-collapse [class^="pe-7s-"] {
+  .navbar-collapse [class^="pe-7s-"]{
+    float: left;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  .navbar-collapse [class^="fa-"]{
     float: left;
     font-size: 20px;
     margin-right: 10px;

@@ -23,13 +23,8 @@ export class LoginComponent{
         }
     }
     submitLogin(){
-        if(this._service.isAuthenticated()){
-            console.log("Logging out");
-            localStorage.clear();
-        }else{
-            this._service.validateLogin(this.username, this.password).subscribe((response : any) =>  {
+        this._service.validateLogin(this.username, this.password).subscribe((response : any) =>  {
                 if(response.status === 200){
-                    localStorage.setItem("authBearer",(response.json()).access_token);
                     this.message = "Login Validated";
                     this.type    = "alert-success";
                     this._router.navigate(["hero"]);
@@ -39,6 +34,5 @@ export class LoginComponent{
                 this.message = "Invalid Username and Password Combination";
                 this.type = "alert-danger";
             });
-        }
     }
 }
