@@ -3406,9 +3406,14 @@ loginrow{
 .col-centered{
   float: none;
   margin: 0 auto;
+  min-width: 300px;
+  min-height: 300px;
+}
+.box{
+  border-radius: 0.5em;
+  background-color: #e7e7e7;
 }
 ul.chatUser{
-  background-color: #e7e7e7;
   padding: 15px;
 }
 ul.chatUser li{
@@ -3419,4 +3424,53 @@ ul.chatUser li{
   border-color: #AAAAAA;
   border-style: solid;
   border-width: 0px 0px 1px 0px;
+}
+.chatBox{
+  height: 85%;
+  display : flex;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+.messageBox{
+  max-height: 200px;
+  flex : initial;
+  -webkit-flex: initial;
+  bottom: 0px;
+  margin-left : -15px;
+}
+.messageBox textarea{
+  border-radius: 0.25em;
+  resize: none;
+}
+.messageArea{
+  padding: 10px;
+  /*display : flex;*/
+  flex: 1;
+  flex-direction: column;
+  -webkit-flex: 1;
+  overflow-y: auto;
+}
+.messageTuple{
+  flex: none;
+  background-color: #FFFFFF;
+  padding : 5px 10px;
+  margin : 10px;
+  border-radius: 0.5em;
+}
+.messageTitle{
+  padding: 5px;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: #CCCCCC;
+}
+.messageSender{  
+  font-weight: bold;
+  font-size: 1.10em; 
+}
+.message{
+  padding: 5px;
+}
+.sentAt{
+  font-size: 0.9em;
+  color: #AAAAAA;
 }

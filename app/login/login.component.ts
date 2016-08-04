@@ -27,7 +27,7 @@ export class LoginComponent{
     }
     ngOnInit(){
         if(this._service.isAuthenticated()){
-           this._router.navigate(['hero']);
+           this._router.navigate(['chat']);
         }
     }
     submitLogin(event){
@@ -39,7 +39,7 @@ export class LoginComponent{
                 if(response.status === 200){
                     this.message = "Login Validated";
                     this.type    = "alert-success";
-                    this._router.navigate(["hero"]);
+                    this._router.navigate(["chat"]);
                 }                
             this.isSubmitted = false;
             },error =>  {

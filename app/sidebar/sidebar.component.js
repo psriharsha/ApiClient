@@ -37,11 +37,23 @@ var SideBarComponent = (function () {
     };
     SideBarComponent.prototype.getMenuItems = function () {
         var profile = new sidebar_1.SideBar();
+        profile.menuname = "Chat";
+        profile.menuicon = "fa-comment-o";
+        profile.menulink = "/chat";
+        profile.menuaction = true;
+        this.menuItems = [];
+        this.menuItems.push(profile);
+        profile = new sidebar_1.SideBar();
+        profile.menuname = "Hero";
+        profile.menuicon = "fa-random";
+        profile.menulink = "/hero";
+        profile.menuaction = true;
+        this.menuItems.push(profile);
+        profile = new sidebar_1.SideBar();
         profile.menuname = "Logout";
         profile.menuicon = "fa-sign-out";
-        profile.menulink = "/hero";
+        profile.menulink = "/login";
         profile.menuaction = false;
-        this.menuItems = [];
         this.menuItems.push(profile);
     };
     SideBarComponent.prototype.logOut = function () {

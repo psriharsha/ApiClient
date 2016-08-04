@@ -26,7 +26,7 @@ var LoginComponent = (function () {
     }
     LoginComponent.prototype.ngOnInit = function () {
         if (this._service.isAuthenticated()) {
-            this._router.navigate(['hero']);
+            this._router.navigate(['chat']);
         }
     };
     LoginComponent.prototype.submitLogin = function (event) {
@@ -39,7 +39,7 @@ var LoginComponent = (function () {
             if (response.status === 200) {
                 _this.message = "Login Validated";
                 _this.type = "alert-success";
-                _this._router.navigate(["hero"]);
+                _this._router.navigate(["chat"]);
             }
             _this.isSubmitted = false;
         }, function (error) {

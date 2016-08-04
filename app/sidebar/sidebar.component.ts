@@ -43,11 +43,23 @@ export class SideBarComponent{
     }
     getMenuItems(){
         let profile = new SideBar();
+        profile.menuname = "Chat";
+        profile.menuicon = "fa-comment-o";
+        profile.menulink = "/chat";
+        profile.menuaction = true;
+        this.menuItems = [];
+        this.menuItems.push(profile);
+        profile = new SideBar();
+        profile.menuname = "Hero";
+        profile.menuicon = "fa-random";
+        profile.menulink = "/hero";
+        profile.menuaction = true;
+        this.menuItems.push(profile);
+        profile = new SideBar();
         profile.menuname = "Logout";
         profile.menuicon = "fa-sign-out";
-        profile.menulink = "/hero";
+        profile.menulink = "/login";
         profile.menuaction = false;
-        this.menuItems = [];
         this.menuItems.push(profile);
     }
     logOut(){
