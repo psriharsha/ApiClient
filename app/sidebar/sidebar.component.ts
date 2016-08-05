@@ -33,33 +33,17 @@ export class SideBarComponent{
         });
     }
     initSideBar(){
-        let profile = new SideBar();
-        profile.menuname = "Profile";
-        profile.menuicon = "fa-user";
-        profile.menulink = "/hero";
-        profile.menuaction = true;
+        let profile = new SideBar("Profile", "fa-user", "/hero", true);
         this.menuItems = [];
         this.menuItems.push(profile);
     }
     getMenuItems(){
-        let profile = new SideBar();
-        profile.menuname = "Chat";
-        profile.menuicon = "fa-comment-o";
-        profile.menulink = "/chat";
-        profile.menuaction = true;
+        let profile = new SideBar("Chat", "fa-comment-o", "/chat", true);
         this.menuItems = [];
         this.menuItems.push(profile);
-        profile = new SideBar();
-        profile.menuname = "Hero";
-        profile.menuicon = "fa-random";
-        profile.menulink = "/hero";
-        profile.menuaction = true;
+        profile = new SideBar("Hero", "fa-random", "/hero", true);
         this.menuItems.push(profile);
-        profile = new SideBar();
-        profile.menuname = "Logout";
-        profile.menuicon = "fa-sign-out";
-        profile.menulink = "/login";
-        profile.menuaction = false;
+        profile = new SideBar("Logout", "fa-sign-out", "/chat", false);
         this.menuItems.push(profile);
     }
     logOut(){

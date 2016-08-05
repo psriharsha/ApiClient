@@ -27,33 +27,17 @@ var SideBarComponent = (function () {
         });
     };
     SideBarComponent.prototype.initSideBar = function () {
-        var profile = new sidebar_1.SideBar();
-        profile.menuname = "Profile";
-        profile.menuicon = "fa-user";
-        profile.menulink = "/hero";
-        profile.menuaction = true;
+        var profile = new sidebar_1.SideBar("Profile", "fa-user", "/hero", true);
         this.menuItems = [];
         this.menuItems.push(profile);
     };
     SideBarComponent.prototype.getMenuItems = function () {
-        var profile = new sidebar_1.SideBar();
-        profile.menuname = "Chat";
-        profile.menuicon = "fa-comment-o";
-        profile.menulink = "/chat";
-        profile.menuaction = true;
+        var profile = new sidebar_1.SideBar("Chat", "fa-comment-o", "/chat", true);
         this.menuItems = [];
         this.menuItems.push(profile);
-        profile = new sidebar_1.SideBar();
-        profile.menuname = "Hero";
-        profile.menuicon = "fa-random";
-        profile.menulink = "/hero";
-        profile.menuaction = true;
+        profile = new sidebar_1.SideBar("Hero", "fa-random", "/hero", true);
         this.menuItems.push(profile);
-        profile = new sidebar_1.SideBar();
-        profile.menuname = "Logout";
-        profile.menuicon = "fa-sign-out";
-        profile.menulink = "/login";
-        profile.menuaction = false;
+        profile = new sidebar_1.SideBar("Logout", "fa-sign-out", "/chat", false);
         this.menuItems.push(profile);
     };
     SideBarComponent.prototype.logOut = function () {

@@ -8,7 +8,7 @@ import {ChatService} from '../chat.service'
     inputs: ['selectedRoom', 'rooms'],
     outputs: ['roomEmitter'],
     template: `<ul class="box chatUser">
-                    <li *ngFor="let room of rooms" (click)="selectRoom(room)">{{room.roomname}}</li>
+                    <li [class.active]="room==selectedRoom" *ngFor="let room of rooms" (click)="selectRoom(room)">{{room.roomname}}</li>
                </ul>`,
     providers: [ChatService]
 })

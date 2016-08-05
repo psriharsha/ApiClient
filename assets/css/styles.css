@@ -839,7 +839,7 @@ body > .navbar-collapse[data-color="purple"]:after {
 }
 .form-control:focus {
   background-color: #FFFFFF;
-  border: 1px solid #AAAAAA;
+  border: 1px solid #7f8c8d;
   -webkit-box-shadow: none;
   box-shadow: none;
   outline: 0 !important;
@@ -3419,12 +3419,22 @@ ul.chatUser{
 ul.chatUser li{
   list-style: none;
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   margin: 0px;
-  border-color: #AAAAAA;
+  border-color: #7f8c8d;
   border-style: solid;
   border-width: 0px 0px 1px 0px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: #bdc3c7;
+}
+ul.chatUser li:last-child{
+  border : 0px;
+}
+ul.chatUser li.active{
+  background-color: #7f8c8d;
+  color: #ecf0f1;
 }
 .chatBox{
   height: 85%;
@@ -3438,6 +3448,10 @@ ul.chatUser li{
   -webkit-flex: initial;
   bottom: 0px;
   margin-left : -15px;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
+  border-color: #bdc3c7;
 }
 .messageBox textarea{
   border-radius: 0.25em;
@@ -3473,5 +3487,5 @@ ul.chatUser li{
 }
 .sentAt{
   font-size: 0.9em;
-  color: #AAAAAA;
+  color: #7f8c8d;
 }

@@ -28,7 +28,7 @@ var UserComponent = (function () {
             selector: 'chat-user',
             inputs: ['selectedRoom', 'rooms'],
             outputs: ['roomEmitter'],
-            template: "<ul class=\"box chatUser\">\n                    <li *ngFor=\"let room of rooms\" (click)=\"selectRoom(room)\">{{room.roomname}}</li>\n               </ul>",
+            template: "<ul class=\"box chatUser\">\n                    <li [class.active]=\"room==selectedRoom\" *ngFor=\"let room of rooms\" (click)=\"selectRoom(room)\">{{room.roomname}}</li>\n               </ul>",
             providers: [chat_service_1.ChatService]
         }), 
         __metadata('design:paramtypes', [chat_service_1.ChatService])
