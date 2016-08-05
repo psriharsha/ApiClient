@@ -10,6 +10,6 @@ export class User{
         this.color     = "#" + Math.floor(Math.random()*16777215).toString(16)
     }
     getFullName(){
-        return this.lastname + " " + this.firstname;
+        return this.firstname + " " + this.lastname;
     }
 }

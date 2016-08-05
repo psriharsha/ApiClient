@@ -5,9 +5,9 @@ import {ChatComponent} from './chat/chat.component';
 
 const routes: RouterConfig = [
   { path: '', redirectTo: '/chat', pathMatch: 'full'},
-  { path: 'login', component: LoginComponent },
-  { path: 'hero', component: HeroComponent },
-  { path: 'chat', component: ChatComponent },
+  { path: 'login', component: LoginComponent, data : {breadCrum : "Login"} },
+  { path: 'hero', component: HeroComponent, data : {breadCrum : "Hero"} },
+  { path: 'chat', component: ChatComponent, data : {breadCrum : "Chat"} },
   {path: '**', redirectTo: '/hero', pathMatch: 'full'}
 ];
 

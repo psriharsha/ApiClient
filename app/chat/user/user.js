@@ -7,7 +7,7 @@ var User = (function () {
         this.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
     }
     User.prototype.getFullName = function () {
-        return this.lastname + " " + this.firstname;
+        return this.firstname + " " + this.lastname;
     };
     return User;
 }());

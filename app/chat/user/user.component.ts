@@ -9,8 +9,7 @@ import {ChatService} from '../chat.service'
     outputs: ['roomEmitter'],
     template: `<ul class="box chatUser">
                     <li *ngFor="let room of rooms" (click)="selectRoom(room)">{{room.roomname}}</li>
-               </ul><br>
-               <button (click)="selectRoom()">Click Here</button>`,
+               </ul>`,
     providers: [ChatService]
 })
 export class UserComponent{

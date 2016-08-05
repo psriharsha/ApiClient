@@ -15,4 +15,4 @@ import './rxjs.operators';
   providers : [HeroService, LoginService, Http, HTTP_PROVIDERS],
   precompile : [HeroComponent, LoginComponent, ChatComponent]
 })
-export class AppComponent { }
+export class AppComponent {}

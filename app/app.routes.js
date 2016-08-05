@@ -5,9 +5,9 @@ var hero_component_1 = require('./hero/hero.component');
 var chat_component_1 = require('./chat/chat.component');
 var routes = [
     { path: '', redirectTo: '/chat', pathMatch: 'full' },
-    { path: 'login', component: login_component_1.LoginComponent },
-    { path: 'hero', component: hero_component_1.HeroComponent },
-    { path: 'chat', component: chat_component_1.ChatComponent },
+    { path: 'login', component: login_component_1.LoginComponent, data: { breadCrum: "Login" } },
+    { path: 'hero', component: hero_component_1.HeroComponent, data: { breadCrum: "Hero" } },
+    { path: 'chat', component: chat_component_1.ChatComponent, data: { breadCrum: "Chat" } },
     { path: '**', redirectTo: '/hero', pathMatch: 'full' }
 ];
 exports.appRouterProviders = [
