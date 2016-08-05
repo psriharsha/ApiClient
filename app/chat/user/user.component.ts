@@ -1,33 +1,29 @@
-import {Component} from '@angular/core'
+import {Component, Input, Output, EventEmitter} from '@angular/core'
 import {ChatBoxComponent} from '../chatbox/chatbox.component'
 import {Room} from '../chatbox/room'
 import {ChatService} from '../chat.service'
 
 @Component({
     selector: 'chat-user',
+    inputs: ['selectedRoom', 'rooms'],
+    outputs: ['roomEmitter'],
     template: `<ul class="box chatUser">
-                    <li *ngFor="let room of rooms" (click)="selectRoom(room.roomname)">{{room.roomname}}</li>
-               </ul>`,
+                    <li *ngFor="let room of rooms" (click)="selectRoom(room)">{{room.roomname}}</li>
+               </ul><br>
+               <button (click)="selectRoom()">Click Here</button>`,
     providers: [ChatService]
 })
 export class UserComponent{
-
+    selectedRoom : Room;
     rooms : Room[];
-    selectedRoomName : string;
+    roomEmitter : EventEmitter<any> = new EventEmitter<any>();
     constructor(private chatService : ChatService){
-        let tempBoxComponent = new ChatBoxComponent(chatService);
-        this.rooms = chatService.rooms;
+        //this.rooms = chatService.rooms;
     }
 
-    selectRoom(roomname : string){
-        console.log(roomname);
-    }
-
-    findRoomByName(roomname : string){
-        for(let i=0; i<this.rooms.length; i++){
-            if(this.rooms[i].roomname === roomname)
-                return this.rooms[i];
-        }
+    selectRoom(name : Room){
+        this.selectedRoom = name;
+        this.roomEmitter.emit(this.selectedRoom);
     }
 
     getRooms(){

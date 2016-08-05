@@ -9,13 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var Subject_1 = require('rxjs/Subject');
 var ChatService = (function () {
     function ChatService() {
+        this.rooms = [];
+        this.roomSubject = new Subject_1.Subject();
     }
     ChatService.prototype.setRooms = function (rooms) {
         this.rooms = rooms;
     };
-    ChatService.prototype.setSelectedRoom = function (roomname) {
+    ChatService.prototype.setSelectedRoom = function (room) {
+        console.log("Room Selected : " + room.roomname);
+        this.selectedRoom = room;
+        this.roomSubject.next(room);
+    };
+    ChatService.prototype.getSelectedRoom = function () {
+        return (this.roomSubject.asObservable());
     };
     ChatService = __decorate([
         core_1.Injectable(), 

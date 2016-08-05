@@ -1,6 +1,7 @@
 "use strict";
 var Room = (function () {
-    function Room(roomname) {
+    function Room(roomid, roomname) {
+        this.roomid = roomid;
         this.roomname = roomname;
         this.roomusers = [];
         this.roommessages = [];
