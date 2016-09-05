@@ -19,12 +19,16 @@ var HeroService = (function () {
         this.endpoint = app_constant_1.SETTINGS.connectionInfo.url + app_constant_1.SETTINGS.connectionInfo.people;
     }
     HeroService.prototype.getHeroes = function () {
-        return this.http.get(this.endpoint)
+        var headers = new http_1.Headers();
+        headers.append("Authorization", "Bearer " + localStorage.getItem("authBearer"));
+        return this.http.get(this.endpoint, {
+            headers: headers
+        })
             .map(this.extractData)
             .catch(this.handleError);
     };
     HeroService.prototype.extractData = function (res) {
-        console.log(res.status);
+        console.log(res.json());
         var body = res.json();
         return body || {};
     };

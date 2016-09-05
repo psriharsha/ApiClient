@@ -16,7 +16,7 @@ var LoginComponent = (function () {
     function LoginComponent(_service, _router, fb) {
         this._service = _service;
         this._router = _router;
-        this.message = "Please log in";
+        this.message = "Please log in to chat";
         this.type = "alert-success";
         this.isSubmitted = false;
         this.loginForm = fb.group({
@@ -40,6 +40,11 @@ var LoginComponent = (function () {
                 _this.message = "Login Validated";
                 _this.type = "alert-success";
                 _this._router.navigate(["chat"]);
+            }
+            else {
+                localStorage.removeItem("authBearer");
+                _this.message = "Invalid Username and Password Combination";
+                _this.type = "alert-danger";
             }
             _this.isSubmitted = false;
         }, function (error) {

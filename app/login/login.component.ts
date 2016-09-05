@@ -17,7 +17,7 @@ export class LoginComponent{
     isSubmitted : Boolean;
 
     constructor(private _service : LoginService, private _router : Router, fb : FormBuilder){
-        this.message = "Please log in";
+        this.message = "Please log in to chat";
         this.type    = "alert-success";
         this.isSubmitted = false;
         this.loginForm= fb.group({
@@ -40,7 +40,11 @@ export class LoginComponent{
                     this.message = "Login Validated";
                     this.type    = "alert-success";
                     this._router.navigate(["chat"]);
-                }                
+                }else{
+                    localStorage.removeItem("authBearer");
+                this.message = "Invalid Username and Password Combination";
+                this.type = "alert-danger";
+                }               
             this.isSubmitted = false;
             },error =>  {
                 localStorage.removeItem("authBearer");

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Hero} from './hero';
-import {Http, Response} from '@angular/http'
+import {Http, Response, Headers} from '@angular/http'
 import {SETTINGS} from '../app.constant'
 import { Observable }     from 'rxjs/Observable';
 @Injectable()
@@ -12,13 +12,17 @@ export class HeroService{
         this.endpoint = SETTINGS.connectionInfo.url + SETTINGS.connectionInfo.people;
     }
     getHeroes(): Observable<Hero[]>{
-        return this.http.get(this.endpoint)
-                        .map(this.extractData)
-                        .catch(this.handleError);
+        let headers = new Headers();
+        headers.append("Authorization", "Bearer " + localStorage.getItem("authBearer"));
+        return this.http.get(this.endpoint, {
+            headers: headers
+            })
+            .map(this.extractData)
+            .catch(this.handleError);
     }
 
     private extractData(res: Response) {
-        console.log(res.status);
+        console.log(res.json());
         let body = res.json();
         return body || { };
     }
