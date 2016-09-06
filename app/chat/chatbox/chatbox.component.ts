@@ -11,7 +11,7 @@ import {Room} from './room'
                     </div>                    
                     <div class="messageArea" *ngIf="selectedRoom != null">
                         <div class="messageTuple col-md-10 col-sm-10 col-xs-10 pull-right" *ngFor="let message of selectedRoom.roommessages" [class.pull-right]="message.self" [class.pull-left]="!message.self">
-                            <div class="col-md-12 messageTitle"><span class="messageSender" [style.color]="message.sendercolor">{{message.sender}}</span><span class="pull-right sentat">{{message.sentat}}</span></div>
+                            <div class="col-md-12 messageTitle"><span rel="tooltip" title="{{message.sender.email}}" class="messageSender" [style.color]="message.sender.color">{{message.sender.getFullName()}}</span><span class="pull-right sentat">{{message.sentat}}</span></div>
                             <div class="col-md-12 message">{{message.message}}</div>
                         </div>
                     </div>                       

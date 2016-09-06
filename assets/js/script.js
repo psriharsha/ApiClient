@@ -34,7 +34,6 @@ $(document).ready(function(){
     }).on("blur", function(){
         $(this).parent(".input-group").removeClass("input-group-focus");
     });
-      
 });
 
 // activate collapse right menu when the windows is resized 

@@ -65,25 +65,25 @@ export class ChatComponent{
             case 2 : tempUser = new User("Bert", "Whitehead", "colin.mclauchlan@kasl.co.uk"); break;
             case 3 : tempUser = new User("Vishal", "Barot", "colin.mclauchlan@kasl.co.uk"); break;
         }        
-        let tempMessage = new Message(tempUser.getFullName(), tempUser.color ,"This was sent by SomeOne", true);
+        let tempMessage = new Message(tempUser,"This was sent by SomeOne", true);
         messages.push(tempMessage);
-        tempMessage = new Message(tempUser.getFullName(), tempUser.color ,"This was sent by SomeOne", false);
+        tempMessage = new Message(tempUser,"This was sent by SomeOne", false);
         messages.push(tempMessage);
-        tempMessage = new Message(tempUser.getFullName(), tempUser.color ,"This was sent by SomeOne", true);
+        tempMessage = new Message(tempUser,"This was sent by SomeOne", true);
         messages.push(tempMessage);
-        tempMessage = new Message(tempUser.getFullName(), tempUser.color ,"This was sent by SomeOne", false);
+        tempMessage = new Message(tempUser,"This was sent by SomeOne", false);
         messages.push(tempMessage);
-        tempMessage = new Message(tempUser.getFullName(), tempUser.color ,"This was sent by SomeOne", true);
+        tempMessage = new Message(tempUser,"This was sent by SomeOne", true);
         messages.push(tempMessage);
-        tempMessage = new Message(tempUser.getFullName(), tempUser.color ,"This was sent by SomeOne", false);
+        tempMessage = new Message(tempUser,"This was sent by SomeOne", false);
         messages.push(tempMessage);
-        tempMessage = new Message(tempUser.getFullName(), tempUser.color ,"This was sent by SomeOne", true);
+        tempMessage = new Message(tempUser,"This was sent by SomeOne", true);
         messages.push(tempMessage);
-        tempMessage = new Message(tempUser.getFullName(), tempUser.color ,"This was sent by SomeOne", false);
+        tempMessage = new Message(tempUser,"This was sent by SomeOne", false);
         messages.push(tempMessage);
-        tempMessage = new Message(tempUser.getFullName(), tempUser.color ,"This was sent by SomeOne", true);
+        tempMessage = new Message(tempUser,"This was sent by SomeOne", true);
         messages.push(tempMessage);
-        tempMessage = new Message(tempUser.getFullName(), tempUser.color ,"This was sent by SomeOne", false);
+        tempMessage = new Message(tempUser,"This was sent by SomeOne", false);
         messages.push(tempMessage);
         return messages;
     }
