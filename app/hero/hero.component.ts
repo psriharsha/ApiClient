@@ -5,12 +5,12 @@ import {HeroService} from './hero.service'
 import {LoginService} from '../login/login.service'
 
 @Component({
-    template : `<ul class="list-group">
+    template : `<button (click) = "getHeroes()">Refresh Data</button>
+                <button (click) = "mockHeroes()">Mock Data</button>
+                <ul class="list-group">
                 <li *ngFor = "let hero of heroes" class="list-group-item">{{hero.name}}</li>
                 </ul>
-                <p *ngIf = "heroes.length == 0">No data</p>
-                <button (click) = "getHeroes()">Refresh Data</button>
-                <button (click) = "mockHeroes()">Mock Data</button>`,
+                <p *ngIf = "heroes.length == 0">No data</p>`,
     providers : [LoginService]
 })
 export class HeroComponent{

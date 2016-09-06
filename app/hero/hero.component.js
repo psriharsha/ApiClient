@@ -41,7 +41,7 @@ var HeroComponent = (function () {
     };
     HeroComponent = __decorate([
         core_1.Component({
-            template: "<ul class=\"list-group\">\n                <li *ngFor = \"let hero of heroes\" class=\"list-group-item\">{{hero.name}}</li>\n                </ul>\n                <p *ngIf = \"heroes.length == 0\">No data</p>\n                <button (click) = \"getHeroes()\">Refresh Data</button>\n                <button (click) = \"mockHeroes()\">Mock Data</button>",
+            template: "<button (click) = \"getHeroes()\">Refresh Data</button>\n                <button (click) = \"mockHeroes()\">Mock Data</button>\n                <ul class=\"list-group\">\n                <li *ngFor = \"let hero of heroes\" class=\"list-group-item\">{{hero.name}}</li>\n                </ul>\n                <p *ngIf = \"heroes.length == 0\">No data</p>",
             providers: [login_service_1.LoginService]
         }), 
         __metadata('design:paramtypes', [hero_service_1.HeroService, login_service_1.LoginService, router_1.Router])
