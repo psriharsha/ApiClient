@@ -53,3 +53,4 @@ typings
 
 #node_logs
 *.log.*
+*.log
