@@ -52,4 +52,4 @@ mode_modules/*
 typings
 
 #node_logs
-*.log
+*.log.*
