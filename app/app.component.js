@@ -19,7 +19,14 @@ var http_1 = require('@angular/http');
 var router_1 = require('@angular/router');
 require('./rxjs.operators');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(router) {
+        var _this = this;
+        this.router = router;
+        this.crum = "Dashboard";
+        this.router.events.subscribe(function () {
+            var url = _this.router.routerState.snapshot.url;
+            _this.crum = ((url).slice(1, url.length)).toUpperCase();
+        });
     }
     AppComponent = __decorate([
         core_1.Component({
@@ -27,9 +34,9 @@ var AppComponent = (function () {
             templateUrl: 'app/app.component.html',
             directives: [router_1.ROUTER_DIRECTIVES, sidebar_component_1.SideBarComponent],
             providers: [hero_service_1.HeroService, login_service_1.LoginService, http_1.Http, http_1.HTTP_PROVIDERS],
-            precompile: [hero_component_1.HeroComponent, login_component_1.LoginComponent, chat_component_1.ChatComponent]
+            precompile: [login_component_1.LoginComponent, chat_component_1.ChatComponent, hero_component_1.HeroComponent]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());
